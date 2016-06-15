@@ -1,0 +1,46 @@
+@media (min-width: 550px){
+  .main {
+    margin-top: 40px;
+  }
+}
+
+#settings-span {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+input {
+  float:left;
+  clear: both;
+}
+
+.time-control {
+  width: 150px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.sign-wrapper {
+  border-radius: 50%;
+}
+
+.sign {
+  width: 100%;
+}
+
+.active {
+    box-shadow: 10px 10px 5px #888888;
+    background-color: green;
+}
+
+.bot-choice {
+    box-shadow: 10px 10px 5px #888888;
+    background-color: blue;
+}
+
+.winner {
+   box-shadow: 10px 10px 5px #888888;
+   background-color: gold;
+}
