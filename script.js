@@ -2,6 +2,12 @@
 
 $(document).ready(function(){
   console.log('ready');
-  var signWrapperWidth = $('.sign-wrapper').width();
-  $('.sign-wrapper').css({'height':signWrapperWidth+'px'});
+  window.resize(function(){
+    setEqualWidthHeight($('.sign-wrapper'));
+  });
 })
+
+function setEqualWidthHeight(jObject) {
+  var width = jObject.width();
+  jObject.css({'height':width+'px'});
+}
