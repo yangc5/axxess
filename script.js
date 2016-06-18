@@ -11,48 +11,18 @@ $(document).ready(function(){
     setEqualWidthHeight($('.sign-wrapper'));
   });
 
-  //rock paper scissors main logic flow
-  $('.sign-wrapper').click(function(){
-    var human = $(this).attr('id');
-    var bot = botChoice();
-    var result = checkForWin(human, bot);
-    console.log(result);
-
-    //show human choice in html
-    $('.sign-wrapper').removeClass('active');
-    $(this).addClass('active');
-
-    //show bot choice in html
-    $('.bot-choice-wrapper').html('');
-    if(bot==='rock') {
-      $('.bot-choice-wrapper').append('<a href="#"><img src="assets/rock.png" alt="rock" class="sign"></a>');
-    } else if(bot==='paper') {
-      $('.bot-choice-wrapper').append('<a href="#"><img src="assets/paper.png" alt="paper" class="sign"></a>');
-    } else {
-      $('.bot-choice-wrapper').append('<a href="#"><img src="assets/scissors.png" alt="scissors" class="sign"></a>');
-    }
-
-    //update score
-    if(result==='win') {
-      win++;
-      $('#win').text(win);
-    } else if(result==='draw') {
-      draw++;
-      $('#draw').text(draw);
-    } else if(result==='loss') {
-      loss++;
-      $('#loss').text(loss);
-    }
-  });
-
   //reset games
   $('form').submit(function(e){
+
     e.preventDefault();
     $('#game-control').val('Restart');
     resetGame();
     countDownInSeconds = getCountDownInSeconds();
-    $('#game h1').text(countDownInSeconds+' Seconds Left');
-    countDown(countDownInSeconds);
+    if(countDownInSeconds>0) {
+      $('.sign-wrapper').click(rockPaperScissors);
+      $('#game h1').text(countDownInSeconds+' Seconds Left');
+      countDown(countDownInSeconds, endGame);
+    }
   });
 });
 
@@ -109,14 +79,65 @@ function getCountDownInSeconds () {
   return countDownInSeconds;
 }
 
-function countDown(duration) {
+function countDown(duration, callback) {
   var countdown = setInterval(function(){
     duration--;
+    if(duration<=10) {
+      $('#game h1').css('color', 'red');
+    }
+
     if(duration>0) {
       $('#game h1').text(duration+' Seconds Left');
     } else if(duration===0) {
-      $('#game h1').text('gameover');
+      callback();
       clearInterval(countdown);
     }
   }, 1000);
+}
+
+function endGame() {
+  $('.sign-wrapper').off('click');
+  announceWinner();
+}
+
+function announceWinner(){
+  if(win>loss){
+    $('#game h1').text('You won!');
+  } else if(win<loss){
+    $('#game h1').text('You lost :(');
+  } else {
+    $('#game h1').text("It's a draw.");
+  }
+}
+
+function rockPaperScissors() {
+  var human = $(this).attr('id');
+  var bot = botChoice();
+  var result = checkForWin(human, bot);
+
+  //show human choice in html
+  $('.sign-wrapper').removeClass('active');
+  $(this).addClass('active');
+
+  //show bot choice in html
+  $('.bot-choice-wrapper').html('');
+  if(bot==='rock') {
+    $('.bot-choice-wrapper').append('<a href="#"><img src="assets/rock.png" alt="rock" class="sign"></a>');
+  } else if(bot==='paper') {
+    $('.bot-choice-wrapper').append('<a href="#"><img src="assets/paper.png" alt="paper" class="sign"></a>');
+  } else {
+    $('.bot-choice-wrapper').append('<a href="#"><img src="assets/scissors.png" alt="scissors" class="sign"></a>');
+  }
+
+  //update score
+  if(result==='win') {
+    win++;
+    $('#win').text(win);
+  } else if(result==='draw') {
+    draw++;
+    $('#draw').text(draw);
+  } else if(result==='loss') {
+    loss++;
+    $('#loss').text(loss);
+  }
 }
