@@ -52,6 +52,7 @@ $(document).ready(function(){
     resetGame();
     countDownInSeconds = getCountDownInSeconds();
     $('#game h1').text(countDownInSeconds+' Seconds Left');
+    countDown(countDownInSeconds);
   });
 });
 
@@ -106,4 +107,16 @@ function getCountDownInSeconds () {
   }
   var countDownInSeconds = mins*60 + secs;
   return countDownInSeconds;
+}
+
+function countDown(duration) {
+  var countdown = setInterval(function(){
+    duration--;
+    if(duration>0) {
+      $('#game h1').text(duration+' Seconds Left');
+    } else if(duration===0) {
+      $('#game h1').text('gameover');
+      clearInterval(countdown);
+    }
+  }, 1000);
 }
