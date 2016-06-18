@@ -31,24 +31,24 @@
         </div>
         <div class="score-board">
           <span>Win:</span>
-          <span class="score">1</span>
+          <span class="score" id="win"></span>
         </div>
         <div class="score-board">
           <span>Draw:</span>
-          <span class="score">2</span>
+          <span class="score" id="draw"></span>
         </div>
         <div class="score-board">
           <span>Loss:</span>
-          <span class="score">3000</span>
-
+          <span class="score" id="loss"></span>
         </div>
       </div>
     </div>
+
     <div class="eight columns main" id="game">
-      <h1>Count Down</h1>
+      <h1></h1>
       <div id="choices">
 
-        <div class="four columns sign-wrapper active" id="rock">
+        <div class="four columns sign-wrapper" id="rock">
           <div class="image-wrapper">
             <a href="#">
               <img src="assets/rock.png" alt="rock" class="sign">
@@ -73,15 +73,10 @@
       <div class="offset-by-three six columns" id="bot-choice">
         <img src="assets/bot.png" alt="bot" id="bot">
         <div class="bot-choice-wrapper">
-          <a href="#">
-            <img src="assets/scissors.png" alt="scissors" class="sign">
-          </a>
         </div>
       </div>
       <div id="warning"></div>
     </div>
-
-
   </div>
 </div>
 
