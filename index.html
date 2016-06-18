@@ -13,15 +13,36 @@
 </head>
 <body>
   <div class="container">
-    <div class="four columns main" id="settings">
-      <div id="settings-span">
-        <span>Game Settings</span>
+    <div class="four columns main">
+      <div id="settings">
+        <div id="settings-span">
+          <span>Game Settings</span>
+        </div>
+        <form>
+          <input type="number" name="minutes" placeholder="minutes" class="time-control">
+          <input type="number" min="0" max="60" name="seconds" placeholder="seconds" class="time-control">
+          <input type="submit" value="Start" id="game-control">
+        </form>
       </div>
-      <form>
-        <input type="number" name="minutes" placeholder="minutes" class="time-control">
-        <input type="number" min="0" max="60" name="seconds" placeholder="seconds" class="time-control">
-        <input type="submit" value="Start">
-      </form>
+
+      <div id="score-boards">
+        <div id="score-boards-span">
+          <span>Scores</span>
+        </div>
+        <div class="score-board">
+          <span>Win:</span>
+          <span class="score">1</span>
+        </div>
+        <div class="score-board">
+          <span>Draw:</span>
+          <span class="score">2</span>
+        </div>
+        <div class="score-board">
+          <span>Loss:</span>
+          <span class="score">3000</span>
+
+        </div>
+      </div>
     </div>
     <div class="eight columns main" id="game">
       <h1>Count Down</h1>
@@ -54,7 +75,7 @@
         <div class="bot-choice-wrapper">
           <a href="#">
             <img src="assets/scissors.png" alt="scissors" class="sign">
-          </a>  
+          </a>
         </div>
       </div>
       <div id="warning"></div>

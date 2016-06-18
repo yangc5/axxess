@@ -4,7 +4,12 @@
   }
 }
 
-#settings-span {
+#settings, #score-boards {
+  float: left;
+  clear: both;
+}
+
+#settings-span, #score-boards-span {
   padding-bottom: 20px;
   padding-top: 20px;
 }
@@ -16,6 +21,23 @@ input {
 
 .time-control {
   width: 150px;
+}
+
+.score-board {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+  width: 150px;
+  padding-right: 50px;
+}
+
+.score {
+  float: right;
 }
 
 h1 {
