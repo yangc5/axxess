@@ -51,17 +51,16 @@ h1 {
 .image-wrapper {
   padding:15%;
 }
+
 .sign {
   width: 100%;
 }
 
 #rock {
-
     background-color: green;
 }
 
 #scissors {
-
     background-color: blue;
 }
 
@@ -80,6 +79,7 @@ h1 {
 #bot-choice {
   position: relative;
 }
+
 .bot-choice-wrapper {
   position: absolute;
   top: 0;
