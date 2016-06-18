@@ -22,7 +22,7 @@ $(document).ready(function(){
       //attache event listener to .sign-wrapper if there's time left
       $('.sign-wrapper').click(rockPaperScissors);
       //turn on warning if less than 10 seconds left
-      if(duration<=10) {
+      if(countDownInSeconds<=10) {
         $('#game h1').css('color', 'red');
       }
       $('#game h1').text(countDownInSeconds+' Seconds Left');
@@ -87,7 +87,7 @@ function getCountDownInSeconds () {
 
 function countDown(duration, callback) {
   var countdown = setInterval(function(){
-    
+
     duration--;
 
     if(duration<=10) {
